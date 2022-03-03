@@ -1,2 +1,2 @@
 # Terraform 
-Mokausi Terraform
+Learn Terraform the easy way !

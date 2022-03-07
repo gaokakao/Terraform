@@ -11,5 +11,19 @@
 resource "aws_instance" "mano" {
 ami = "ami-08ca3fed11864d6bb"
 instance_type = "t2.micro"
-  
+
+  tags = {
+    Name = "Pirmas"
+  }  
+
+
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-08ca3fed11864d6bb"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Mano Instance"
+  }
 }

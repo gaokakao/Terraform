@@ -4,7 +4,7 @@
    region = "eu-west-1"
  } 
 data "aws_vpc" "mano" {
-  id = "vpc-01d49ba9371a34927" # Incogni VPC id
+  id = "vpc-0d6270325c0cad477" # VPC id
         
 }
 # Create EC2 Instance Example
@@ -34,123 +34,43 @@ data "aws_vpc" "mano" {
 #
 #     AWS Firewall Security group
 #
-resource "aws_security_group" "Incogni" {
-  name        = "Incogni"
-  description = "Allow Incogni inbound traffic"
+resource "aws_security_group" "Mano" {
+  name        = "Mano"
+  description = "Allow inbound traffic"
   # vpc_id      = aws_vpc.mano.id
 tags = {
-    Name = "Incogni"
+    Name = "Mano"
   }
   ingress {
-    description      = " internal VPN IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["92.249.36.184/32"]
-  }
-  ingress {
-    description      = " internal VPN IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["92.249.36.185/32"]
-  }
-  ingress {
-    description      = " internal VPN IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["89.34.99.57/32"]
-  }
-  ingress {
-    description      = " internal VPN IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["195.181.165.175/32"]
-  }
-  ingress {
-    description      = " internal VPN IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["92.249.36.4/32"]
-  }
-  ingress {
-    description      = " Sharko HQ IP"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["217.117.19.186/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["146.70.82.106/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["3.208.120.145/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["34.194.127.46/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["34.220.159.42/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["5.253.205.197/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["51.15.211.169/32"]
-  }
-  ingress {
-    description      = " Unconfirmed from Digital Ocean"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["54.234.237.108/32"]
-  }
-  ingress {
-    description      = " Povilo/Tado"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["78.56.226.158/32"]
-  }
-  ingress {
-    description      = " Povilo/Tado"
-    from_port        = 1
-    to_port          = 65530
-    protocol         = "all"
-    cidr_blocks      = ["87.239.87.205/32"]
-  }
-  ingress {
-    description      = " Giedriaus"
+    description      = "HP"
     from_port        = 1
     to_port          = 65530
     protocol         = "all"
     cidr_blocks      = ["78.63.87.6/32"]
   }
+
+  ingress {
+    description      = "GitLab"
+    from_port        = 1
+    to_port          = 65530
+    protocol         = "all"
+    cidr_blocks      = ["52.49.187.66/32"]
+  }
+
+  ingress {
+    description      = "GitLab Runner 1"
+    from_port        = 1
+    to_port          = 65530
+    protocol         = "all"
+    cidr_blocks      = ["54.220.220.9/32"]
+  }
+
+  ingress {
+    description      = "GitLab Runner 2"
+    from_port        = 1
+    to_port          = 65530
+    protocol         = "all"
+    cidr_blocks      = ["52.50.238.142/32"]
+  }
+  
 }

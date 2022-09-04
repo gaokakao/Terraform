@@ -1,6 +1,6 @@
  provider "aws" {
-   access_key = "AKIAQRPZQQVPMR7ZQGJB"
-   secret_key = "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"
+   access_key = "AKIAVQK6SE7CDQYM72MC"
+   secret_key = "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"
    region = "eu-west-1"
  } 
 data "aws_vpc" "mano" {
